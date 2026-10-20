@@ -31,10 +31,8 @@ public class RentalCarCalculator {
         double underageSurcharge = calculateUnderageSurcharge(basicCarRental, age);
         double totalCost = basicCarRental + optionsCosts + underageSurcharge;
 
-        displaySummary(basicCarRental, optionsCosts, underageSurcharge, totalCost);
-        scanner.close();
+        displaySummary(pickupDate, basicCarRental, optionsCosts, underageSurcharge, totalCost);        scanner.close();
     }
-
 
     public static double calculateBasicCost(int days) {
         return days * 29.99;
@@ -63,8 +61,9 @@ public class RentalCarCalculator {
         }
     }
 
-    public static void displaySummary(double basic, double options, double surcharge, double total){
+    public static void displaySummary(String date, double basic, double options, double surcharge, double total){
         System.out.println("\n--- Rental Car Summary ---");
+        System.out.println("Pickup Date:        " + date);
         System.out.printf("Basic car rental:   $%.2f%n", basic);
         System.out.printf("Options cost:       $%.2f%n", options);
         System.out.printf("Underage surcharge: $%.2f%n", surcharge);
